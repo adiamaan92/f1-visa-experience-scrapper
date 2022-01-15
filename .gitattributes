@@ -1,0 +1,4 @@
+# Setup a encoding definition for the anonymous session, 
+# so that it can be encrypted before every commit
+# and decrypted after every checkout
+anonymous.session filter=git-crypt diff=git-crypt
