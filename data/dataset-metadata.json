@@ -1,0 +1,20 @@
+{
+	"title": "F1 Visa Experiences",
+	"id": "adiamaan/f1-visa-experiences",
+	"subtitle": "Daily updated f1 visa experiences",
+	"description": "### Context\n\nF1-Visa is a type of **non-immigrant** visa provided by the US Government to allow students to temporarily live in the US for a defined period of time while studying at a school. It is the **3rd most applied visa** in the whole world. For many students, it is the culmination of years of hard work and dedication. \n\nAfter appearing for TOEFL/IELTS, GRE and applying for schools of interest, and getting an admit, attending the Visa Interview is the next step, which arguably is also the toughest. It is a subjective process, where a Visa officer asks a serious of question to the prospective student and arrives at a conclusion deeming his fitness. \n\nAn example for the denial could be,\n- Signs of family ties already present in the US (makes a student highly unlikely to return back to home country)\n- Lack of funds for education\n- No ties between experience and the major chosen\n- Questionable universities and academic performances\n\nThe data comes from a telegram channel and all the visa experiences mainly are from India. I am working on adding more sources. So watch out!\n\n### Acknowledgements\n\nA huge thanks to the mods of the Telegram channel, t.me/f1interviewreviews for moderating the community and pushing out new experiences frequently.\n\n### Inspiration\n\n1. What are some of the commonalities for getting your visa rejected?\n2. India has embassies across multiple cities like Delhi, Mumbai, Kolkatta, Hyderabad, Chennai etc.\nAre the denials more likely to happen in a city? etc..\n",
+	"isPrivate": false,
+	"keywords": [
+		"united states",
+		"india",
+		"education",
+		"nlp"
+	],
+	"licenses": [
+		{
+			"name": "CC0-1.0"
+		}
+	],
+	"collaborators": [],
+	"data": []
+}
