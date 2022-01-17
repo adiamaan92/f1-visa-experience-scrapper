@@ -14,7 +14,7 @@ An example for the denial could be,
 3. No ties between experience and the major chosen
 4. Questionable universities and academic performances
 
-The data comes from a telegram channel and all the visa experiences mainly are from India. I am working on adding more sources. So watch out!
+> The data comes from a telegram channel and all the visa experiences mainly are from India. I am working on adding more sources. So watch out!
 
 ## Acknowledgements
 A huge thanks to the mods of the Telegram channel, t.me/f1interviewreviews for moderating the community and pushing out new experiences frequently.
