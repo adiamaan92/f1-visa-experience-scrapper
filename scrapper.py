@@ -1,3 +1,18 @@
+"""
+F1 Interview Scrapper
+---------------------
+
+This module adds the latest interview experience to the existing
+kaggle dataset at, https://www.kaggle.com/adiamaan/f1-visa-experiences
+
+Workflow
+--------
+1. Download the latest kaggle dataset containing data from previous run
+2. Get a list of new experiences that are added from the last run
+3. Fetch the latest experiences, update to the existing dataset and upload
+back to Kaggle
+
+"""
 import asyncio
 import datetime
 import logging
@@ -15,6 +30,14 @@ TELEGRAM_HASH = str(os.getenv("TELEGRAM_HASH"))
 
 
 def get_experiences(api: KaggleApi) -> pd.DataFrame:
+    """Get existing experiences from Kaggle API
+
+    Args:
+        api (KaggleApi): Kaggle API instance
+
+    Returns:
+        pd.DataFrame: DataFrame of existing experiences
+    """
     api.dataset_download_files(
         "adiamaan/f1-visa-experiences", path="./data", unzip=True
     )
@@ -22,6 +45,16 @@ def get_experiences(api: KaggleApi) -> pd.DataFrame:
 
 
 async def get_messages(client: TelegramClient, max_id: int) -> pd.DataFrame:
+    """Get messages from Telegram API that are greater than the max_id
+
+    Args:
+        client (TelegramClient): Telegram client instance
+        max_id (int): Maximum message ID to get messages from.
+        Usually this is the last message ID from the previous run
+
+    Returns:
+        pd.DataFrame: New messages in a dataframe
+    """
     channel = await client.get_entity("f1interviewreviews")
     messages = await client.get_messages(channel, min_id=max_id + 1, limit=10000)
     return pd.DataFrame(
@@ -30,6 +63,12 @@ async def get_messages(client: TelegramClient, max_id: int) -> pd.DataFrame:
 
 
 def write_experiences(experiences: pd.DataFrame, new_experiences: pd.DataFrame):
+    """Combine new experiences with existing experiences and create a new dataset version
+
+    Args:
+        experiences (pd.DataFrame): Existing experiences
+        new_experiences (pd.DataFrame): New experiences
+    """
     all_experiences = (
         pd.concat([new_experiences, experiences])
         .sort_values("msg_id", ascending=False)
@@ -43,7 +82,7 @@ def write_experiences(experiences: pd.DataFrame, new_experiences: pd.DataFrame):
 
 
 if __name__ == "__main__":
-    # Username and password set as environment variables
+    # Kaggle Username and password is expected to be set as environment variables
     api = KaggleApi()
     api.authenticate()
 
