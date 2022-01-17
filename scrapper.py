@@ -37,7 +37,7 @@ def decode_session_file():
     Args:
         file_path (Path): Path to the telegram session file
     """
-    with open("key", "w") as text_file:
+    with open("./key", "w", encoding="utf-8") as text_file:
         text_file.write(GIT_CRYPT_KEY)
 
     os.system("git-crypt unlock key")
