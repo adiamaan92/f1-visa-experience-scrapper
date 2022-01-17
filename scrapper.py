@@ -27,6 +27,21 @@ logging.basicConfig(level=logging.INFO)
 TELEGRAM_SESSION = str(os.getenv("TELEGRAM_SESSION"))
 TELEGRAM_USER = str(os.getenv("TELEGRAM_USER"))
 TELEGRAM_HASH = str(os.getenv("TELEGRAM_HASH"))
+GIT_CRYPT_KEY = str(os.getenv("GIT_CRYPT_KEY"))
+
+
+def decode_session_file():
+    """Decodes the session file using the GIT_CRYPT_KEY from
+    environment variable
+
+    Args:
+        file_path (Path): Path to the telegram session file
+    """
+    with open("key", "w") as text_file:
+        text_file.write(GIT_CRYPT_KEY)
+
+    os.system("git-crypt unlock key")
+    os.remove("key")
 
 
 def get_experiences(api: KaggleApi) -> pd.DataFrame:
@@ -85,6 +100,8 @@ if __name__ == "__main__":
     # Kaggle Username and password is expected to be set as environment variables
     api = KaggleApi()
     api.authenticate()
+
+    decode_session_file()
 
     client = TelegramClient(TELEGRAM_SESSION, TELEGRAM_USER, TELEGRAM_HASH)
     client.start()

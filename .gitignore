@@ -2,3 +2,5 @@ dev.ipynb
 .vscode
 telegram.csv
 TODO
+# ignore the git-crypt key incase it is generated while testing
+key
