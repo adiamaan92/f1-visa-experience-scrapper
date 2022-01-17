@@ -17,6 +17,7 @@ import asyncio
 import datetime
 import logging
 import os
+from urllib import request
 
 import pandas as pd
 from kaggle.api.kaggle_api_extended import KaggleApi
@@ -27,21 +28,14 @@ logging.basicConfig(level=logging.INFO)
 TELEGRAM_SESSION = str(os.getenv("TELEGRAM_SESSION"))
 TELEGRAM_USER = str(os.getenv("TELEGRAM_USER"))
 TELEGRAM_HASH = str(os.getenv("TELEGRAM_HASH"))
-GIT_CRYPT_KEY = str(os.getenv("GIT_CRYPT_KEY"))
+SESSION_URL = str(os.getenv("SESSION_URL"))
 
 
-def decode_session_file():
-    """Decodes the session file using the GIT_CRYPT_KEY from
-    environment variable
-
-    Args:
-        file_path (Path): Path to the telegram session file
+def get_session_file():
     """
-    with open("./key", "w", encoding="utf-8") as text_file:
-        text_file.write(GIT_CRYPT_KEY)
-
-    # os.system("git-crypt unlock key")
-    # os.remove("key")
+    Downloads the session file from a remote URL
+    """
+    request.urlretrieve(SESSION_URL, "anonymous.session")
 
 
 def get_experiences(api: KaggleApi) -> pd.DataFrame:
@@ -100,8 +94,6 @@ if __name__ == "__main__":
     # Kaggle Username and password is expected to be set as environment variables
     api = KaggleApi()
     api.authenticate()
-
-    decode_session_file()
 
     client = TelegramClient(TELEGRAM_SESSION, TELEGRAM_USER, TELEGRAM_HASH)
     client.start()
