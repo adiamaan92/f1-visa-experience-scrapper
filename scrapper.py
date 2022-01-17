@@ -40,8 +40,8 @@ def decode_session_file():
     with open("./key", "w", encoding="utf-8") as text_file:
         text_file.write(GIT_CRYPT_KEY)
 
-    os.system("git-crypt unlock key")
-    os.remove("key")
+    # os.system("git-crypt unlock key")
+    # os.remove("key")
 
 
 def get_experiences(api: KaggleApi) -> pd.DataFrame:
