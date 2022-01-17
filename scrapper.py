@@ -109,4 +109,5 @@ if __name__ == "__main__":
         exit()
 
     write_experiences(experiences, new_experiences)
+    os.remove("anonymous.session")
     logging.info(f"Added {len(new_experiences)} new experiences")
