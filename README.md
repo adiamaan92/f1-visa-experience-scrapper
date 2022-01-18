@@ -19,6 +19,8 @@ An example for the denial could be,
 ## Dataset:
 Dataset is hosted here, https://www.kaggle.com/adiamaan/f1-visa-experiences
 
+> The scrapper is scheduled to run every day at 8 AM using a Github Action workflow.
+
 ## Acknowledgements
 A huge thanks to the mods of the Telegram channel, t.me/f1interviewreviews for moderating the community and pushing out new experiences frequently.
 
