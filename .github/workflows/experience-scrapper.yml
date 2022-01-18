@@ -43,4 +43,6 @@ jobs:
           TELEGRAM_USER: ${{ secrets.TELEGRAM_USER }}
           TELEGRAM_HASH: $ {{ secrets.TELEGRAM_HASH }}
           SESSION_URL: ${{ secrets.SESSION_URL }}
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
 
