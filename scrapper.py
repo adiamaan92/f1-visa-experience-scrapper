@@ -95,6 +95,8 @@ if __name__ == "__main__":
     api = KaggleApi()
     api.authenticate()
 
+    get_session_file()
+
     client = TelegramClient(TELEGRAM_SESSION, TELEGRAM_USER, TELEGRAM_HASH)
     client.start()
 

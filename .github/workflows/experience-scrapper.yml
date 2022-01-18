@@ -34,7 +34,7 @@ jobs:
         run: poetry install --no-interaction --no-root --no-dev
       - name: Install library
         run: poetry install --no-interaction --no-dev
-      - name: Run tests
+      - name: Run scrapper
         run: |
           source .venv/bin/activate
           python scrapper.py
@@ -42,4 +42,5 @@ jobs:
           TELEGRAM_SESSION: ${{ secrets.TELEGRAM_SESSION }}
           TELEGRAM_USER: ${{ secrets.TELEGRAM_USER }}
           TELEGRAM_HASH: $ {{ secrets.TELEGRAM_HASH }}
+          SESSION_URL: ${{ secrets.SESSION_URL }}
 
